@@ -38,7 +38,7 @@ plt.show()
 #Bredde og lengdegrader: 58.380494, 6.041657 (Stikkshaug, stapnes)
 
 df = pd.read_csv("Ovinger/Oving6/SolinnstralingStapnes.csv", skiprows = 8)
-df = df.iloc[4346:4370]
+df = df.iloc[4344:4368]
 df["G(i)"] = pd.to_numeric(
     df["G(i)"],
     errors="coerce"
@@ -67,3 +67,16 @@ plt.grid()
 plt.savefig("Ovinger/Oving6/PlottSolinstralingBegge.png")
 plt.show()
 
+#oppgave 7, juster parameterene
+A= 987.32
+sigma = 2.4
+
+plt.plot(df["time"], df["G(i)"])
+plt.plot(tidsakse,G(tidsakse, A, my, sigma))
+plt.xticks(np.arange(0,25,1))
+plt.xlabel("Tid [timer]")
+plt.ylabel("Global solinnstråling [W/m²]")
+plt.title("Solinnstråling på Stikkshaugen, Stapnes, 1.juli 2025, og solinnstråling modell med Gauss-Seidel og maks 800 [W/m^2] kl 13")
+plt.grid()
+plt.savefig("Ovinger/Oving6/PlottSolinstralingBegge.png")
+plt.show()
