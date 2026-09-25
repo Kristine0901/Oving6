@@ -57,12 +57,12 @@ plt.show()
 
 #Oppgave 6, plott de i samme figur
 
-plt.plot(df["time"], df["G(i)"])
-plt.plot(tidsakse,G(tidsakse, A, my, sigma))
+plt.plot(df["time"], df["G(i)"], label = "Ekte kurve")
+plt.plot(tidsakse,G(tidsakse, A, my, sigma), label = "Modellert kurve")
 plt.xticks(np.arange(0,25,1))
 plt.xlabel("Tid [timer]")
 plt.ylabel("Global solinnstråling [W/m²]")
-plt.title("Solinnstråling på Stikkshaugen, Stapnes, 1.juli 2025, og solinnstråling modell med Gauss-Seidel og maks 800 [W/m^2] kl 13")
+plt.title("Solinnstråling på Stikkshaugen, Stapnes, 1.juli 2025, \n og solinnstråling modell med Gauss-Seidel og maks 800 [W/m^2] kl 13")
 plt.grid()
 plt.legend()
 plt.savefig("Ovinger/Oving6/PlottSolinstralingBegge.png")
@@ -72,12 +72,12 @@ plt.show()
 A= 987.32
 sigma = 2.4
 
-plt.plot(df["time"], df["G(i)"])
-plt.plot(tidsakse,G(tidsakse, A, my, sigma))
+plt.plot(df["time"], df["G(i)"], label = "Ekte kurve")
+plt.plot(tidsakse,G(tidsakse, A, my, sigma), label = "Modellert kurve")
 plt.xticks(np.arange(0,25,1))
 plt.xlabel("Tid [timer]")
 plt.ylabel("Global solinnstråling [W/m²]")
-plt.title("Solinnstråling på Stikkshaugen, Stapnes, 1.juli 2025, og solinnstråling modell med Gauss-Seidel og maks 800 [W/m^2] kl 13")
+plt.title("Solinnstråling på Stikkshaugen, Stapnes, 1.juli 2025, \n og solinnstråling modell med Gauss-Seidel og maks 800 [W/m^2] kl 13")
 plt.grid()
 plt.legend()
 plt.savefig("Ovinger/Oving6/PlottSolinstralingBegge2.png")
