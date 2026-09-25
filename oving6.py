@@ -66,3 +66,4 @@ plt.title("Solinnstråling på Stikkshaugen, Stapnes, 1.juli 2025, og solinnstr�
 plt.grid()
 plt.savefig("Ovinger/Oving6/PlottSolinstralingBegge.png")
 plt.show()
+
