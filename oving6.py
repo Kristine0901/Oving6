@@ -1,5 +1,6 @@
 import numpy as np 
 import matplotlib.pyplot as plt 
+import pandas as pd
 
 def G(t,A, my, sigma):
     solinnstraling = A * np.exp(-(t-my)**2 / (2*sigma**2))
@@ -31,4 +32,37 @@ plt.xlabel("Tid [timer]")
 plt.ylabel("Innstråling [W/m²]")
 plt.grid()
 plt.savefig("Ovinger/Oving6/SolinnstralingTreSigmaer.png")
+plt.show()
+
+#Del 2: Hent data fra PVGIS
+#Bredde og lengdegrader: 58.380494, 6.041657 (Stikkshaug, stapnes)
+
+df = pd.read_csv("Ovinger/Oving6/SolinnstralingStapnes.csv", skiprows = 8)
+df = df.iloc[4346:4370]
+df["G(i)"] = pd.to_numeric(
+    df["G(i)"],
+    errors="coerce"
+)
+
+df["time"] = np.arange(len(df))
+print(df.head())
+plt.plot(df["time"], df["G(i)"])
+plt.xticks(np.arange(0,25,1))
+plt.xlabel("Tid [timer]")
+plt.ylabel("Global solinnstråling [W/m²]")
+plt.title("Solinnstråling på Stikkshaugen, Stapnes, 1.juli 2025")
+plt.grid()
+plt.savefig("Ovinger/Oving6/SolinnstrålingStikkshaugen.png")
+plt.show()
+
+#Oppgave 6, plott de i samme figur
+
+plt.plot(df["time"], df["G(i)"])
+plt.plot(tidsakse,G(tidsakse, A, my, sigma))
+plt.xticks(np.arange(0,25,1))
+plt.xlabel("Tid [timer]")
+plt.ylabel("Global solinnstråling [W/m²]")
+plt.title("Solinnstråling på Stikkshaugen, Stapnes, 1.juli 2025, og solinnstråling modell med Gauss-Seidel og maks 800 [W/m^2] kl 13")
+plt.grid()
+plt.savefig("Ovinger/Oving6/PlottSolinstralingBegge.png")
 plt.show()
